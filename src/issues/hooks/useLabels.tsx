@@ -6,6 +6,7 @@ import { sleep } from "../../helpers/sleep";
 const getLabels = async ():Promise<Label[]> => {
   await sleep(2)
   const { data } = await githubApi.get<Label[]>('/labels');
+  // console.log(data)
   return data
 }
 
@@ -36,8 +37,6 @@ export const useLabels = () => {
       },
     ],
   });
-
-  console.log({ dato1: labelsQuery.data?.at(1) } )
 
   return { 
     labelsQuery 
