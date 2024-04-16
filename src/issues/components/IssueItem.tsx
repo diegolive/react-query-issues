@@ -4,7 +4,7 @@ import { FiInfo, FiMessageSquare, FiCheckCircle } from 'react-icons/fi';
 import { useQueryClient } from '@tanstack/react-query';
 import { Issue, State } from '../interfaces';
 import { getIssueComments, getIssueInfo } from '../hooks';
-import { timeSince } from '../../helpers';
+import { forecolor, timeSince } from '../../helpers';
 
 interface Props {
     issue: Issue
@@ -60,7 +60,7 @@ export const IssueItem:FC<Props> = ({issue}) => {
                                 <span
                                     key={label.id}
                                     className='badge rounded-pill m1'
-                                    style={{backgroundColor: `#${label.color}`,color: 'black'}}
+                                    style={{backgroundColor: `#${label.color}`,color: `#${forecolor(label.color)}`}}
 
                                 >
                                     {label.name}
