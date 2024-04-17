@@ -9,7 +9,8 @@ interface Props {
 }
 
 const getIssues = async (labels: string[]=[], state?: State):Promise<Issue[]> => {
-  await sleep(2)
+  
+  await sleep(import.meta.env.VITE_SECONDS_TO_DELAY ?? 2)
 
   const params = new URLSearchParams();
 

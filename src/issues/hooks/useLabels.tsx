@@ -4,7 +4,7 @@ import { Label } from "../interfaces/label";
 import { sleep } from "../../helpers/sleep";
 
 const getLabels = async ():Promise<Label[]> => {
-  await sleep(2)
+  await sleep(import.meta.env.VITE_SECONDS_TO_DELAY ?? 2)
   const { data } = await githubApi.get<Label[]>('/labels?per_page=100'); // 100 para mostrarlas todas hay 68
   // console.log(data)
   return data
